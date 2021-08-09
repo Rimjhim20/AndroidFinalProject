@@ -19,16 +19,16 @@
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
                 android:id="@+id/mainheading"
-                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:textColor="@color/black"
+                android:padding="5dp"
                 android:text="Main heading display here main heading display "
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textColor="#021163"
+                android:textSize="22sp"
+                android:textStyle="bold|italic" />
 
             <LinearLayout
                 android:layout_width="match_parent"
