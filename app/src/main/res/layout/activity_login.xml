@@ -57,7 +57,7 @@
         android:drawableLeft="@drawable/ic_baseline_security_24"
         android:ems="10"
         android:hint="Password"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:padding="10dp"
         android:textColor="#F1F2F8"
         android:textColorHint="#F9F8FB"

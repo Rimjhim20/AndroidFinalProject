@@ -4,12 +4,16 @@ import android.content.Intent;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
 
 public class RegisterActivity extends AppCompatActivity {
     DatabaseHelper db;
@@ -18,12 +22,24 @@ public class RegisterActivity extends AppCompatActivity {
     EditText mTextCnfPassword;
     Button mButtonRegister;
     TextView mTextViewLogin;
+    Spinner spinner;
+    ArrayList qualification;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        spinner=findViewById(R.id.spinner);
+        qualification=new ArrayList();
+        qualification.add("not specified");
+        qualification.add("Undergraduate");
+        qualification.add("Postgraduate");
+        qualification.add("Masters");
+        qualification.add("Phd");
 
+        ArrayAdapter adapter= new ArrayAdapter(this,android.R.layout.simple_dropdown_item_1line,qualification);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        spinner.setAdapter(adapter);
         db = new DatabaseHelper(this);
         mTextUsername = findViewById(R.id.edittext_username);
         mTextPassword = findViewById(R.id.edittext_password);
