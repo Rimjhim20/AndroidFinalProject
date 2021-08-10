@@ -22,14 +22,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DecimalFormat;
-
 public class Weather extends AppCompatActivity {
     EditText etCity,etCountry;
     TextView tvResult;
     private final String url="http://api.openweathermap.org/data/2.5/weather";
     private final String appid="9eb0b3cd68bcc110259d03aeccfa1932";
     DecimalFormat df= new DecimalFormat("#.##");
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +36,6 @@ public class Weather extends AppCompatActivity {
         etCountry=findViewById(R.id.etCountry);
         tvResult=findViewById(R.id.tvresult);
     }
-
     @SuppressLint("SetTextI18n")
     public void getWeatherDetails(View view) {
         String tempUrl = " ";
@@ -52,7 +49,6 @@ public class Weather extends AppCompatActivity {
             } else {
                 tempUrl = url + "?q=" + city + "&appid=" + appid;
             }
-
             StringRequest stringRequest = new StringRequest(Request.Method.POST, tempUrl, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
@@ -88,7 +84,6 @@ public class Weather extends AppCompatActivity {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
                 }
             }, new Response.ErrorListener() {
                 @Override
@@ -96,7 +91,6 @@ public class Weather extends AppCompatActivity {
                     Toast.makeText(Weather.this, error.toString().trim(), Toast.LENGTH_SHORT).show();
                 }
             });
-
             RequestQueue requestQueue= Volley.newRequestQueue(getApplicationContext());
             requestQueue.add(stringRequest);
         }
